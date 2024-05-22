@@ -9,10 +9,10 @@
 <body>
     <div class="container mt-5">
         <h1>Email Validation Form</h1>
-        <form action="" method="$_POST">
+        <form action="" method="post">
             <div class="form-group">
                 <label for="email">Email address: </label>
-                <input type="email" class="form-control" id="email" name="email">
+                <input type="text" class="form-control" id="email" name="email">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
@@ -20,7 +20,33 @@
         <?php 
         if (isset($_POST['email'])) {
             $email = $_POST["email"];
+            $checkEmail1 = '.';
+            
+            $pos = strpos($email, $checkEmail1);
+
+            if ($pos === false) {
+                echo "L'email '$email' non è corretta";
+                    echo "L'email deve contenere questi caratteri (.) e (@)";
+            } else {
+                echo "L'email è corretta";
+            }
         }
+        ?>
+        <?php
+        if(isset($_POST['email'])) {
+            $email = $_POST["email"];
+            $checkEmail2 = '@';
+
+            $pos = strpos($email, $checkEmail2);
+
+            if ($pos === false) {
+                echo "L'email '$email' non è corretta";
+                    echo "L'email deve contenere questi caratteri (.) e (@)";
+            } else {
+                echo "L'email è corretta";
+            }
+        }
+        
         ?>
     </div>
 </body>
